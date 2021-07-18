@@ -50,3 +50,9 @@ hr {
 .nav-link:hover {
     color: #fff !important;
 }
+
+#mainTitle {
+    margin-top: 20vh;
+    color: #fff;
+    text-align: center;
+}
