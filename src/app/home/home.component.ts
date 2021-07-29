@@ -1,5 +1,6 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +15,8 @@ import { Component, OnInit } from '@angular/core';
     ]),
     trigger('slideRight', [
       transition('void => *', [
-        style({transform: 'translateX(100%)'}),
-        animate('700ms ease-out', style({transform: 'translateX(0%)'}))
+        style({transform: 'translateX(40%)'}),
+        animate('400ms ease-out', style({transform: 'translateX(0%)'}))
       ])
     ]),
     trigger('slideTop', [
@@ -36,6 +37,9 @@ export class HomeComponent implements OnInit {
 
   public mainTitle: string;
   public titles: any;
+
+  // Icons
+  public faArrowRight: any = faArrowRight;
 
   constructor() { 
     this.mainTitle = '';
