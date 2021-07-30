@@ -1,5 +1,6 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -41,7 +42,7 @@ export class HomeComponent implements OnInit {
   // Icons
   public faArrowRight: any = faArrowRight;
 
-  constructor() { 
+  constructor(private router: Router) { 
     this.mainTitle = '';
     this.titles = [
       'Here\'s to the crazy ones.',
@@ -58,6 +59,12 @@ export class HomeComponent implements OnInit {
   private randomize(): void {
     const randInt = Math.floor(Math.random() * this.titles.length);
     this.mainTitle =  this.titles[randInt];
+  }
+
+  // Navigate function
+  public navigate(url: string): void {
+    this.router.navigateByUrl(url);
+    console.log('fucking called');
   }
 
 }

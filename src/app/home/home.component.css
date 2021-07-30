@@ -30,7 +30,8 @@
 }
 
 .sqaureLink {
-    width: auto !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .square {
@@ -41,6 +42,15 @@
     margin-right: auto;
     height: 31.25rem;
     width: 21.875rem;
+    position: relative;
+    transform: scale(1.0);
+    transition-duration: 200ms;
+}
+
+.square:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    color: #000033;
 }
 
 #square1 {
@@ -53,4 +63,20 @@
     background-size: 21.875rem;
 }
 
+.squareArrowRight {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: #fff;
+}
+
+.textOnSquare {
+    color: #fda600;
+    font-size: 2rem;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    text-shadow: 1px 1px rgba(0,0,0,.4);
+}
 /* End square section */
