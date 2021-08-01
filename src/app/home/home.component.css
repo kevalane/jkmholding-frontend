@@ -82,5 +82,18 @@
 /* End square section */
 
 /* Banner */
+#banner {
+	position: relative;
+	margin-top: 6em;
+	margin-bottom: 2em;
+	background: url('/assets/img/rubrikbar.png') no-repeat;
+}
 
+#textOnBanner {
+    margin-left: 15%;
+    width: 80%;
+    line-height: 130px;
+    color: #ffffff;
+    font-size: 2rem;
+}
 /* End banner */
