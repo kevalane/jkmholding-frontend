@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* Icons */
+.icon {
+    display: inline-block;
+    background-size: cover;
+}
+
+.github-icon {
+    background-image: url('assets/img/socials/github.svg');
+    height: 2em;
+    width: 2em;
+}
+
+.github-icon:hover {
+    filter: invert(74%) sepia(64%) saturate(5803%) hue-rotate(192deg) brightness(79%) contrast(87%);
+}
+
+.twitter-icon {
+    background-image: url('assets/img/socials/twitter.svg');
+    height: 2em;
+    width: 2em;
+}
+
+.twitter-icon:hover {
+    filter: invert(53%) sepia(35%) saturate(3512%) hue-rotate(176deg) brightness(98%) contrast(94%);
+}
+
+.instagram-icon {
+    background-image: url('assets/img/socials/instagram.svg');
+    height: 2.15em;
+    width: 2em;
+}
+
+.instagram-icon:hover {
+    filter: invert(43%) sepia(90%) saturate(2082%) hue-rotate(338deg) brightness(105%) contrast(92%);
+}
+
+.linkedin-icon {
+    background-image: url('assets/img/socials/linkedin.svg');
+    height: 2.2em;
+    width: 2em;
+}
+
+.linkedin-icon:hover {
+    filter: invert(36%) sepia(19%) saturate(2387%) hue-rotate(175deg) brightness(95%) contrast(93%);
+}
+/* End icons */
