@@ -1,20 +1,27 @@
-<footer class="footer">
+<footer>
     <!-- Navigate up arrow -->
     <div class="footerArrowUp">
-        <div class="footerCircle">
-            <fa-icon [icon]="faAngleDoubleUp"></fa-icon>
+        <div class="footerCircle" (click)="goToTop()">
+            <p class="arrowWrap"><fa-icon [icon]="faAngleDoubleUp" class="fa-lg"></fa-icon></p>
         </div>
     </div>
 
+    <!-- Top footer -->
     <div class="topFooter">
         <div id="socialNavWrap" class="text-center">
             <ul id="socialNav">
                 <!-- For hovers https://codepen.io/sosuke/pen/Pjoqqp -->
                 <li><a class="icon github-icon" href="https://github.com/kevalane" target="_BLANK"></a></li>
-                <li><a class="icon twitter-icon" href="https://twitter.com/kevrasmusson" target="_BLANK"></a></li>
-                <li><a class="icon instagram-icon" href="https://instagram.com/kevrasmusson" target="_BLANK"></a></li>
-                <li><a class="icon linkedin-icon" href="https://linkedin.com/in/kevinrasmusson/" target="_BLANK"></a></li>
+                <li><a class="icon twitter-icon" href="https://twitter.com/jkmholding" target="_BLANK"></a></li>
+                <li><a class="icon instagram-icon" href="https://instagram.com/jkmholding" target="_BLANK"></a></li>
+                <li><a class="icon linkedin-icon" href="https://linkedin.com/company/jkmholding/" target="_BLANK"></a></li>
             </ul>
-        </div>
-    </div>
-</footer>
+        </div><!-- End social nav wrap -->
+    </div><!-- End footer -->
+
+    <!-- Lower footer -->
+    <div class="endFooter">
+        <p class="text-center" style="margin-top: 1rem;">Copyright &copy; 2021, JKM Holding AB.</p>
+        <p class="text-center">Alla rättigheter förbehålls.</p>
+    </div><!-- End lower footer -->
+</footer><!-- End footer-->

@@ -16,4 +16,9 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Go top top func
+  public goToTop(): void {
+    window.scroll(0,0);
+  }
+
 }
