@@ -71,7 +71,7 @@
 }
 
 .textOnSquare {
-    color: #fda600;
+    color: #ffb84d;
     font-size: 2rem;
     position: absolute;
     top: 40%;
@@ -87,13 +87,16 @@
 	margin-top: 6em;
 	margin-bottom: 2em;
 	background: url('/assets/img/rubrikbar.png') no-repeat;
+    background-size: cover;
 }
 
-#textOnBanner {
-    margin-left: 15%;
-    width: 80%;
-    line-height: 130px;
+.textOnBanner {
+    line-height: 7rem;
     color: #ffffff;
     font-size: 2rem;
+}
+
+.mobileBanner {
+    font-size: 1rem !important;
 }
 /* End banner */

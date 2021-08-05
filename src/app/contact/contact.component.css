@@ -1,0 +1,27 @@
+#title {
+    font-weight: 400;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+.mapouter { 
+    overflow: hidden;
+    background: none !important;
+    height:500px;
+    width:960px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+}
+
+fa-icon {
+    margin-right: .7rem;
+}
+
+article {
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
