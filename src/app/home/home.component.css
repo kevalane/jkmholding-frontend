@@ -94,9 +94,29 @@
     line-height: 7rem;
     color: #ffffff;
     font-size: 2rem;
+    font-weight: 300;
 }
 
 .mobileBanner {
     font-size: 1rem !important;
 }
 /* End banner */
+
+/* portfolio */
+#portfolioTitle {
+    font-weight: 400;
+}
+
+#portfolio {
+    margin-top: 5rem;
+}
+
+.companyImage {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 22rem;
+    margin-bottom: 1.5rem;
+}
+/* End portfolio */
