@@ -2,14 +2,15 @@
 .parallax {
     background: url('/assets/img/REBackground2.png') no-repeat center;
     background-size: cover;
-    height: 120vh;
+    height: 100vh;
     z-index: -1;
     position: relative;
 }
 
 .textOnParallax {
     position: absolute;
-    top: 20%;
+    /* top: 30%; */
+    top: 10rem;
     left: 0;
     right: 0;
     margin-left: auto;
