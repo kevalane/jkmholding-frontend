@@ -1,4 +1,6 @@
-
+body {
+    background: #fdfdfd;
+}
 /* Icons */
 .icon {
     display: inline-block;
