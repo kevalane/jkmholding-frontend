@@ -2,7 +2,7 @@
 .parallax {
     background: url('/assets/img/REBackground2.png') no-repeat center;
     background-size: cover;
-    height: 90vh;
+    height: 91vh;
     z-index: -1;
     position: relative;
 }
@@ -10,7 +10,7 @@
 .textOnParallax {
     position: absolute;
     /* top: 30%; */
-    top: 10rem;
+    top: 18rem;
     left: 0;
     right: 0;
     margin-left: auto;
