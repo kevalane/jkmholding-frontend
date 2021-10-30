@@ -7,8 +7,17 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  @HostListener("window:scroll", []) onWindowScroll() {
-    console.log('scrolled');
+  currentPosition: any;
+
+  @HostListener('window:scroll', ['$event']) onWindowScroll(e: any) {
+    let scroll = e.target['scrollingElement'].scrollTop;
+    if (scroll > this.currentPosition) {
+      console.log('scrollDown');
+    } else {
+      console.log('scrollUp');
+    }
+    this.currentPosition = scroll;
+    console.log(this.currentPosition);
   }
 
   constructor () {
