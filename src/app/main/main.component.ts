@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -8,22 +9,40 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class MainComponent implements OnInit {
 
   currentPosition: any;
+  companies = document.querySelector('#jkmholding');
+  index: number = 0;
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(e: any) {
     let scroll = e.target['scrollingElement'].scrollTop;
     if (scroll > this.currentPosition) {
-      console.log('scrollDown');
+      this.scroll('down');
     } else {
-      console.log('scrollUp');
+      this.scroll('up');
     }
     this.currentPosition = scroll;
     console.log(this.currentPosition);
   }
 
-  constructor () {
+  constructor (private router: Router) {
+    console.log(this.companies);
   }
 
   ngOnInit(): void {
+    console.log(this.companies);
+  }
+
+  private scroll(dir: string): void {
+    
+    if (dir == 'down') {
+      // let company = this.companies[this.index] as HTMLElement;
+      // console.log(company)
+      // company.scrollIntoView({behavior: 'smooth'});
+      this.router.navigate([], { fragment: "klassanda" });
+    } else if (dir == 'up') {
+
+    } else {
+      console.log('Scrolling function got invalid data. DIR: ' + dir);
+    }
   }
 
 }
