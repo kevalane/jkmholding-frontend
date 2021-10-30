@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -9,37 +9,50 @@ import { Router } from '@angular/router';
 export class MainComponent implements OnInit {
 
   currentPosition: any;
-  companies = document.querySelector('#jkmholding');
+  companies: string[];
   index: number = 0;
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(e: any) {
     let scroll = e.target['scrollingElement'].scrollTop;
     if (scroll > this.currentPosition) {
+      // USE ANIMATION INSTEAD
       this.scroll('down');
     } else {
       this.scroll('up');
     }
     this.currentPosition = scroll;
-    console.log(this.currentPosition);
   }
 
-  constructor (private router: Router) {
-    console.log(this.companies);
+  constructor(private router: Router,
+              private route: ActivatedRoute) {
+    this.companies = [
+      'jkmholding',
+      'jkmsolutions',
+      'klassanda'
+    ];
   }
 
   ngOnInit(): void {
-    console.log(this.companies);
+    
   }
 
   private scroll(dir: string): void {
     
     if (dir == 'down') {
-      // let company = this.companies[this.index] as HTMLElement;
-      // console.log(company)
-      // company.scrollIntoView({behavior: 'smooth'});
-      this.router.navigate([], { fragment: "klassanda" });
+      console.log(this.index);
+      this.router.navigate([], { fragment: this.companies[this.index + 1] })
+        .then(_ => {
+          // this.index = this.companies.indexOf();
+          this.route.fragment.subscribe(data => {
+            if (data) {
+              this.index = this.companies.indexOf(data);
+              console.log(data);
+              console.log('index: ' + this.companies.indexOf(data));
+            }
+          });
+        });
     } else if (dir == 'up') {
-
+      this.router.navigate([], { fragment: this.companies[0] });
     } else {
       console.log('Scrolling function got invalid data. DIR: ' + dir);
     }
