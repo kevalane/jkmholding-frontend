@@ -1,7 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
-// import { debounce, throttle } from "lodash";
+import { Subject } from 'rxjs';
+import { throttleTime } from 'rxjs/operators'
 
 @Component({
   selector: 'app-main',
@@ -10,26 +11,16 @@ import * as _ from 'lodash';
 })
 export class MainComponent implements OnInit {
 
-  currentPosition: any;
+  currentPosition: number = 0;
   companies: string[];
   index: number = 0;
-  timeout: any = null;
-  private throttledFunc = this.throttle(() => {
-    this.scroll('down');
-    console.log('SIGGE')
-    this.index++;
-  }, 200)
+
+  private scrollSubject = new Subject<number>();
+  private scrollObservable = this.scrollSubject.asObservable().pipe(throttleTime(500));
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(e: any) {
     let scroll = e.target['scrollingElement'].scrollTop;
-    
-    if (scroll > this.currentPosition) {
-      console.log('hello')
-      // this.throttledScroll();
-      this.throttledFunc();
-    } else {
-      // this.debounce(this.scroll('up'), 100);
-    }
+    this.scrollSubject.next(scroll);
     this.currentPosition = scroll;
   }
 
@@ -43,19 +34,31 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-  }
-
-  private throttledScroll() {
-    return this.throttle(() => {
-      console.log('CALLED');
-      this.scroll('down');
-      
-    }, 100);
+    this.scrollObservable.subscribe(scroll => {
+      console.log(scroll);
+      if (scroll > this.currentPosition) {
+        console.log('here going down')
+        this.scroll('down');
+        if (this.index == this.companies.length) {
+          this.index = 2;
+        } else {
+          this.index++;
+        }
+      } else {
+        this.scroll('up');
+        if (this.index == 0) {
+          this.index = 0;
+        } else {
+          this.index--;
+        }
+      }
+      this.currentPosition = scroll;
+    });
   }
 
   private scroll(dir: string): any {
     if (dir == 'down') {
+      console.log('awngipagnwpa')
       this.router.navigate([], {fragment: this.companies[this.index + 1]});
       // console.log('called');
       // console.log(this.index);
@@ -70,21 +73,9 @@ export class MainComponent implements OnInit {
       //     });
       //   });
     } else if (dir == 'up') {
-      this.router.navigate([], { fragment: this.companies[0] });
+      this.router.navigate([], { fragment: this.companies[this.index - 1] });
     } else {
       console.log('Scrolling function got invalid data. DIR: ' + dir);
-    }
-  }
-
-  private throttle(fun: any, delay: any){
-    console.log('here')
-    let flag = true;
-    return function(){
-      if(flag){
-        fun();
-        flag = false;
-        setTimeout(() => flag = true, delay);
-      }
     }
   }
 
