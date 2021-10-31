@@ -16,7 +16,7 @@ export class MainComponent implements OnInit {
   index: number = 0;
 
   private scrollSubject = new Subject<number>();
-  private scrollObservable = this.scrollSubject.asObservable().pipe(throttleTime(500));
+  private scrollObservable = this.scrollSubject.asObservable().pipe(throttleTime(600));
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(e: any) {
     let scroll = e.target['scrollingElement'].scrollTop;
@@ -38,14 +38,14 @@ export class MainComponent implements OnInit {
       console.log(scroll);
       if (scroll > this.currentPosition) {
         console.log('here going down')
-        this.scroll('down');
+        this.scrollPage('down');
         if (this.index == this.companies.length) {
           this.index = 2;
         } else {
           this.index++;
         }
       } else {
-        this.scroll('up');
+        this.scrollPage('up');
         if (this.index == 0) {
           this.index = 0;
         } else {
@@ -56,7 +56,7 @@ export class MainComponent implements OnInit {
     });
   }
 
-  private scroll(dir: string): any {
+  private scrollPage(dir: string): any {
     if (dir == 'down') {
       console.log('awngipagnwpa')
       this.router.navigate([], {fragment: this.companies[this.index + 1]});
