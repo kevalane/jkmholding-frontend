@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { throttleTime } from 'rxjs/operators'
 
@@ -14,7 +14,7 @@ export class MainComponent implements OnInit {
   index: number = 0;
 
   private scrollSubject = new Subject<number>();
-  private scrollObservable = this.scrollSubject.asObservable().pipe(throttleTime(500));
+  private scrollObservable = this.scrollSubject.asObservable().pipe(throttleTime(1000));
 
   // Mousewheel implementation
   @HostListener('mousewheel', ['$event']) scroll(event: WheelEvent) {
@@ -32,8 +32,7 @@ export class MainComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router,
-              private route: ActivatedRoute) {
+  constructor(private router: Router) {
     this.companies = [
       'jkmholding',
       'jkmsolutions',
@@ -43,6 +42,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.scrollObservable.subscribe(scroll => {
+      console.log(this.index);
       if (scroll > 0) {
         if (this.index == this.companies.length - 1) {
           this.index = 2;

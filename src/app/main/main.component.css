@@ -1,14 +1,29 @@
 .company {
     height: 100vh;
     padding: 3rem;
+    color: #fff;
+    text-align: center;
+}
+
+.title {
+    margin-top: 30vh;
+}
+
+.subTitle {
+    font-weight: 300;
+    font-size: 1.2rem;
 }
 
 #jkmholding {
-    background: green;
+    background: url('/assets/img/homepage/black.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #jkmsolutions {
-    background: blue;
+    background: url('/assets/img/homepage/purple-paint.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #klassanda {
