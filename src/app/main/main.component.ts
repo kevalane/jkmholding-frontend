@@ -21,7 +21,12 @@ export class MainComponent implements OnInit {
   @HostListener('window:scroll', ['$event']) onWindowScroll(e: any) {
     let scroll = e.target['scrollingElement'].scrollTop;
     this.scrollSubject.next(scroll);
-    this.currentPosition = scroll;
+  }
+
+  @HostListener('mousewheel', ['$event']) scroll(event: WheelEvent) {
+    console.log('still firing');
+    // console.log(event.deltaY)
+    this.scrollSubject.next(event.deltaY);
   }
 
   constructor(private router: Router,
@@ -36,19 +41,19 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.scrollObservable.subscribe(scroll => {
       console.log(scroll);
-      if (scroll > this.currentPosition) {
+      if (scroll > 0) {
         console.log('here going down')
-        this.scrollPage('down');
-        if (this.index == this.companies.length) {
+        if (this.index == this.companies.length - 1) {
           this.index = 2;
         } else {
+          this.scrollPage('down');
           this.index++;
         }
       } else {
-        this.scrollPage('up');
         if (this.index == 0) {
           this.index = 0;
         } else {
+          this.scrollPage('up');
           this.index--;
         }
       }
@@ -60,18 +65,6 @@ export class MainComponent implements OnInit {
     if (dir == 'down') {
       console.log('awngipagnwpa')
       this.router.navigate([], {fragment: this.companies[this.index + 1]});
-      // console.log('called');
-      // console.log(this.index);
-      // this.router.navigate([], { fragment: this.companies[this.index + 1] })
-      //   .then(_ => {
-      //     this.route.fragment.subscribe(data => {
-      //       if (data) {
-      //         this.index = this.companies.indexOf(data);
-      //         console.log(data);
-      //         console.log('index: ' + this.companies.indexOf(data));
-      //       }
-      //     });
-      //   });
     } else if (dir == 'up') {
       this.router.navigate([], { fragment: this.companies[this.index - 1] });
     } else {
