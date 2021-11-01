@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as _ from 'lodash';
 import { Subject } from 'rxjs';
 import { throttleTime } from 'rxjs/operators'
 
@@ -11,22 +10,26 @@ import { throttleTime } from 'rxjs/operators'
 })
 export class MainComponent implements OnInit {
 
-  currentPosition: number = 0;
   companies: string[];
   index: number = 0;
 
   private scrollSubject = new Subject<number>();
-  private scrollObservable = this.scrollSubject.asObservable().pipe(throttleTime(600));
+  private scrollObservable = this.scrollSubject.asObservable().pipe(throttleTime(500));
 
-  @HostListener('window:scroll', ['$event']) onWindowScroll(e: any) {
-    let scroll = e.target['scrollingElement'].scrollTop;
-    this.scrollSubject.next(scroll);
+  // Mousewheel implementation
+  @HostListener('mousewheel', ['$event']) scroll(event: WheelEvent) {
+    this.scrollSubject.next(event.deltaY);
   }
 
-  @HostListener('mousewheel', ['$event']) scroll(event: WheelEvent) {
-    console.log('still firing');
-    // console.log(event.deltaY)
-    this.scrollSubject.next(event.deltaY);
+  // TODO: Add a separate scrollSubject with lower throttle time
+  // Keypress implementation (wasd, arrows)
+  @HostListener('document:keydown', ['$event']) handleKeyboardEvent(event: KeyboardEvent) {
+    let key = event.code.toLowerCase();
+    if (key == 'arrowdown' || key == 'keys') {
+      this.scrollSubject.next(1);
+    } else if (key == 'arrowup' || key == 'keyw') {
+      this.scrollSubject.next(-1);
+    }
   }
 
   constructor(private router: Router,
@@ -40,9 +43,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.scrollObservable.subscribe(scroll => {
-      console.log(scroll);
       if (scroll > 0) {
-        console.log('here going down')
         if (this.index == this.companies.length - 1) {
           this.index = 2;
         } else {
@@ -57,13 +58,11 @@ export class MainComponent implements OnInit {
           this.index--;
         }
       }
-      this.currentPosition = scroll;
     });
   }
 
   private scrollPage(dir: string): any {
     if (dir == 'down') {
-      console.log('awngipagnwpa')
       this.router.navigate([], {fragment: this.companies[this.index + 1]});
     } else if (dir == 'up') {
       this.router.navigate([], { fragment: this.companies[this.index - 1] });
