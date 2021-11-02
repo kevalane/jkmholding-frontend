@@ -14,10 +14,11 @@
 .subTitle {
     font-weight: 300;
     font-size: 1.2rem;
+    margin-bottom: 2.5rem;
 }
 
 .nextButton {
-    animation: pulseStraight 3s infinite ease-in-out;
+    animation: pulseStraight 2s infinite ease-in-out;
     position: absolute;
     left: 0;
     right: 0;
@@ -37,11 +38,20 @@
     font-size: .7rem;
 }
 
+.readMoreButton {
+    text-decoration: none;
+    border: 1px solid #fdc400;
+    padding: 1rem 2rem; 
+    color: #fff;
+    font-weight: 200;
+    border-radius: .3rem;
+}
+
 #jkmholding {
     /* background: url('/assets/img/homepage/black.jpg');
     background-size: cover;
     background-repeat: no-repeat; */
-    background: linear-gradient(-45deg, rgba(0,0,51,0.2) 0%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(-70deg, rgba(0,0,51,0.2) 0%, rgba(0,0,0,1) 100%);
 }
 
 #jkmsolutions {
@@ -52,9 +62,10 @@
 }
 
 #klassanda {
-    background: url('/assets/img/homepage/pattern.jpg');
+    /* background: url('/assets/img/homepage/pattern.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background: linear-gradient(-120deg, rgba(0,0,51,0.2) 10%, rgba(0,0,0,1) 100%);
 }
 
 @keyframes pulseStraight {

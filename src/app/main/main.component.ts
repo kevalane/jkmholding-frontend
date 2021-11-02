@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
-import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleDown, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-main',
@@ -14,6 +14,7 @@ export class MainComponent implements OnInit {
   companies: string[];
   index: number = 0;
   public down = faAngleDoubleDown;
+  public link = faExternalLinkAlt;
 
   private scrollSubject = new Subject<number>();
   private scrollObservable = this.scrollSubject.asObservable().pipe(throttleTime(1000));
@@ -36,7 +37,8 @@ export class MainComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private route: ActivatedRoute) {
     this.companies = [
       'jkmholding',
       'jkmsolutions',
@@ -52,7 +54,18 @@ export class MainComponent implements OnInit {
     // For Mouse
     this.scrollObservableMouse.subscribe(scroll => {
       this.handleScroll(scroll);
-    })
+    });
+
+    const fragmentSub = this.route.fragment.subscribe(data => {
+      for (let i = 0; i < this.companies.length; i++) {
+        if (data == this.companies[i]) {
+          this.index = i;
+          console.log(this.index);
+          this.router.navigate([], {fragment: this.companies[this.index]});
+        }
+      }
+    });
+    fragmentSub.unsubscribe();
   }
 
   private handleScroll(scroll: number): void {
