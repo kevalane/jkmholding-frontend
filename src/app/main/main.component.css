@@ -3,10 +3,12 @@
     padding: 3rem;
     color: #fff;
     text-align: center;
+    font-family: Helvetica;
 }
 
 .title {
     margin-top: 30vh;
+    font-size: 3rem;
 }
 
 .subTitle {
@@ -15,7 +17,7 @@
 }
 
 .nextButton {
-    animation: pulseStraight 1s infinite ease-in-out;
+    animation: pulseStraight 3s infinite ease-in-out;
     position: absolute;
     left: 0;
     right: 0;
@@ -26,20 +28,33 @@
     cursor: pointer;
 }
 
+.learnMore {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1vh;
+    font-weight: 100;
+    font-size: .7rem;
+}
+
 #jkmholding {
-    background: url('/assets/img/homepage/black.jpeg');
+    /* background: url('/assets/img/homepage/black.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background: linear-gradient(-45deg, rgba(0,0,51,0.2) 0%, rgba(0,0,0,1) 100%);
 }
 
 #jkmsolutions {
-    background: url('/assets/img/homepage/purple-paint.jpeg');
+    /* background: url('/assets/img/homepage/purple-paint.jpeg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background: linear-gradient(-90deg, rgba(0,0,51,0.2) 10%, rgba(0,0,0,1) 100%);
 }
 
 #klassanda {
-    background: red;
+    background: url('/assets/img/homepage/pattern.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 @keyframes pulseStraight {
@@ -53,5 +68,4 @@
         transform: scale(1.0);
     }
 }
-
 
