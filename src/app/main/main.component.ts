@@ -1,7 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { throttleTime } from 'rxjs/operators'
+import { throttleTime } from 'rxjs/operators';
+import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-main',
@@ -12,6 +13,7 @@ export class MainComponent implements OnInit {
 
   companies: string[];
   index: number = 0;
+  public down = faAngleDoubleDown;
 
   private scrollSubject = new Subject<number>();
   private scrollObservable = this.scrollSubject.asObservable().pipe(throttleTime(1000));
@@ -69,6 +71,10 @@ export class MainComponent implements OnInit {
     } else {
       console.log('Scrolling function got invalid data. DIR: ' + dir);
     }
+  }
+
+  public nextButtonScroll(): void {
+    this.scrollSubject.next(1);
   }
 
 }
