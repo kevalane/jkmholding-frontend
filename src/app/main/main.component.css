@@ -58,7 +58,7 @@
     /* background: url('/assets/img/homepage/purple-paint.jpeg');
     background-size: cover;
     background-repeat: no-repeat; */
-    background: linear-gradient(-90deg, rgba(0,0,51,0.2) 10%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(-90deg, rgba(0,0,51,0.2) 20%, rgba(0,0,0,1) 100%);
 }
 
 #klassanda {
