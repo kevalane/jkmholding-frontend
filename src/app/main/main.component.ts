@@ -17,6 +17,8 @@ export class MainComponent implements OnInit {
 
   private scrollSubject = new Subject<number>();
   private scrollObservable = this.scrollSubject.asObservable().pipe(throttleTime(1000));
+  private scrollSubjectMouse = new Subject<number>();
+  private scrollObservableMouse = this.scrollSubjectMouse.asObservable().pipe(throttleTime(0));
 
   // Mousewheel implementation
   @HostListener('mousewheel', ['$event']) scroll(event: WheelEvent) {
@@ -28,9 +30,9 @@ export class MainComponent implements OnInit {
   @HostListener('document:keydown', ['$event']) handleKeyboardEvent(event: KeyboardEvent) {
     let key = event.code.toLowerCase();
     if (key == 'arrowdown' || key == 'keys') {
-      this.scrollSubject.next(1);
+      this.scrollSubjectMouse.next(1);
     } else if (key == 'arrowup' || key == 'keyw') {
-      this.scrollSubject.next(-1);
+      this.scrollSubjectMouse.next(-1);
     }
   }
 
@@ -44,7 +46,17 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.scrollObservable.subscribe(scroll => {
-      console.log(this.index);
+      this.handleScroll(scroll);
+    });
+
+    // For Mouse
+    this.scrollObservableMouse.subscribe(scroll => {
+      this.handleScroll(scroll);
+    })
+  }
+
+  private handleScroll(scroll: number): void {
+    console.log(this.index);
       if (scroll > 0) {
         if (this.index == this.companies.length - 1) {
           this.index = 2;
@@ -60,7 +72,6 @@ export class MainComponent implements OnInit {
           this.index--;
         }
       }
-    });
   }
 
   private scrollPage(dir: string): any {
