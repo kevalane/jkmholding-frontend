@@ -56,6 +56,7 @@ export class MainComponent implements OnInit {
       this.handleScroll(scroll);
     });
 
+    // TODO : check where we are physically instead, dont follow anchor bc unreliable, doesnt always scroll
     const fragmentSub = this.route.fragment.subscribe(data => {
       for (let i = 0; i < this.companies.length; i++) {
         if (data == this.companies[i]) {
