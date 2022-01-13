@@ -4,8 +4,8 @@
     box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
 }
 
-.nav-item {
-    margin-right: 2em;
+.d-lg-flex > .nav-item {
+    margin-left: 2rem;
 }
 
 .nav-link:hover {
