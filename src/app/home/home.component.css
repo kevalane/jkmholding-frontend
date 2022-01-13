@@ -2,8 +2,8 @@
 .parallax {
     background: url('/assets/img/ocean.png') no-repeat center;
     background-size: cover;
-    height: 91vh;
-    margin-top: -10rem;
+    height: 100vh;
+    margin-top: -5rem;
     z-index: -1;
     position: relative;
 }
