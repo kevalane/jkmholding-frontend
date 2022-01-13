@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit {
     this.titles = [
       'Here\'s to the crazy ones.',
       'Vi startar & investerar i framtidens bolag.',
-      'Vi går dit andra inte vågar.',
       'Think different.'
     ];
   }
@@ -64,7 +63,6 @@ export class HomeComponent implements OnInit {
   // Navigate function
   public navigate(url: string): void {
     this.router.navigateByUrl(url);
-    console.log('fucking called');
   }
 
 }
