@@ -1,6 +1,22 @@
 /* Shared */
 .title {
     font-weight: 300;
+    padding-bottom: 1rem;
+    width: auto;
+    position: relative;
+  z-index : 1;
+}
+
+.title:before {
+    content : "";
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    bottom: 0;
+    width   : 10%;  /* or 100px */
+    border-bottom: .3rem solid #fda600;
 }
 
 /* Parallax first image */
@@ -58,11 +74,25 @@
 
 #whyTitle {
     padding-top: 2.5rem;
-    padding-bottom: 1rem;
+}
+
+#sinekWrap {
+    margin-top: 1.75rem;
 }
 
 .sinekTitle {
     font-weight: 300;
+}
+
+.sinekHr {
+    width: 15%;
+    height: .3rem;
+    border-radius: .3rem;
+    background-color: #000033;
+    border: none;
+    opacity: 1;
+    margin-top: 0rem;
+    margin-bottom: .5rem;
 }
 
 .sinekText {
