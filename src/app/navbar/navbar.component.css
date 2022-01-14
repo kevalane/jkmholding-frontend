@@ -1,7 +1,11 @@
 .navbar {
     min-height: 5em !important;
     background: transparent !important;
-    /* box-shadow: 0 2px 2px -2px rgba(0,0,0,.2); */
+}
+
+.withBackground {
+    background: #000033 !important;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
 }
 
 .d-lg-flex > .nav-item {
