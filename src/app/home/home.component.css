@@ -29,8 +29,8 @@
 /* portfolio */
 
 #portfolio {
-    margin-top: 2rem;
-    margin-bottom: 5rem;
+    margin-top: 5rem;
+    margin-bottom: 2.5rem;
 }
 
 .companyImage {
@@ -49,3 +49,22 @@
     cursor: pointer;
 }
 /* End portfolio */
+
+/* WHY */
+#why {
+    background: #f7f8f9;
+    padding-bottom: 2.5rem;
+}
+
+#whyTitle {
+    padding-top: 2.5rem;
+    padding-bottom: 1rem;
+}
+
+.sinekTitle {
+    font-weight: 300;
+}
+
+.sinekText {
+    text-align: justify;
+}
