@@ -1,3 +1,8 @@
+/* Shared */
+.title {
+    font-weight: 300;
+}
+
 /* Parallax first image */
 .parallax {
     background: url('/assets/img/ocean.png') no-repeat center;
@@ -21,9 +26,6 @@
 /* End first image */
 
 /* portfolio */
-#portfolioTitle {
-    font-weight: 400;
-}
 
 #portfolio {
     margin-top: 2rem;
