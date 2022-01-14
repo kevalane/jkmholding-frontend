@@ -41,6 +41,7 @@
     max-height: 22rem;
     margin-bottom: 1.5rem;
     transition: ease-in-out 0.1s;
+    border-radius: .3rem;
 }
 
 .companyImage:hover {
