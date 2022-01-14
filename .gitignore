@@ -2,6 +2,7 @@
 
 # other
 HTML/
+.angular/
 
 # compiled output
 /dist

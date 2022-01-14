@@ -1,3 +1,24 @@
+/* Shared */
+.title {
+    font-weight: 300;
+    padding-bottom: 1rem;
+    width: auto;
+    position: relative;
+  z-index : 1;
+}
+
+.title:before {
+    content : "";
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    bottom: 0;
+    width   : 10%;  /* or 100px */
+    border-bottom: .3rem solid #fda600;
+}
+
 /* Parallax first image */
 .parallax {
     background: url('/assets/img/ocean.png') no-repeat center;
@@ -5,6 +26,7 @@
     height: 100vh;
     margin-top: -5rem;
     z-index: -1;
+    /* position: absolute; */
 }
 
 .textOnParallax {
@@ -21,13 +43,10 @@
 /* End first image */
 
 /* portfolio */
-#portfolioTitle {
-    font-weight: 400;
-}
 
 #portfolio {
-    margin-top: 2rem;
-    margin-bottom: 5rem;
+    margin-top: 5rem;
+    margin-bottom: 2.5rem;
 }
 
 .companyImage {
@@ -37,5 +56,45 @@
     margin-right: auto;
     max-height: 22rem;
     margin-bottom: 1.5rem;
+    transition: ease-in-out 0.1s;
+    border-radius: .3rem;
+}
+
+.companyImage:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 /* End portfolio */
+
+/* WHY */
+#why {
+    background: #f7f8f9;
+    padding-bottom: 2.5rem;
+}
+
+#whyTitle {
+    padding-top: 2.5rem;
+}
+
+#sinekWrap {
+    margin-top: 1.75rem;
+}
+
+.sinekTitle {
+    font-weight: 300;
+}
+
+.sinekHr {
+    width: 15%;
+    height: .3rem;
+    border-radius: .3rem;
+    background-color: #000033;
+    border: none;
+    opacity: 1;
+    margin-top: 0rem;
+    margin-bottom: .5rem;
+}
+
+.sinekText {
+    text-align: justify;
+}
